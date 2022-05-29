@@ -29,7 +29,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 
 @interface NSDate(ECVFoundationAdditions)
 
-+ (NSTimeInterval)ECV_timeIntervalSinceReferenceDate;
+//+ (NSTimeInterval)ECV_timeIntervalSinceReferenceDate;
 
 @end
 

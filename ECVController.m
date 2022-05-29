@@ -58,7 +58,7 @@ static ECVController *ECVSharedController;
 
 @interface ECVController(Private)
 
-- (void)_userActivity;
+//- (void)_userActivity;
 
 @end
 
@@ -99,7 +99,9 @@ static void ECVDeviceAdded(Class deviceClass, io_iterator_t iterator)
 {
 	if(flag) {
 		if(_playCount < NSUIntegerMax) _playCount++;
-		if(1 == _playCount) _userActivityTimer = [NSTimer scheduledTimerWithTimeInterval:30.0f target:self selector:@selector(_userActivity) userInfo:nil repeats:YES];
+        if(1 == _playCount) {
+//            _userActivityTimer = [NSTimer scheduledTimerWithTimeInterval:30.0f target:self selector:@selector(_userActivity) userInfo:nil repeats:YES];
+        }
 	} else {
 		NSParameterAssert(_playCount);
 		_playCount--;
@@ -148,10 +150,10 @@ static void ECVDeviceAdded(Class deviceClass, io_iterator_t iterator)
 
 #pragma mark -ECVController(Private)
 
-- (void)_userActivity
-{
-	UpdateSystemActivity(UsrActivity);
-}
+//- (void)_userActivity
+//{
+//	UpdateSystemActivity(UsrActivity);
+//}
 
 #pragma mark -NSObject
 

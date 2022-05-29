@@ -24,10 +24,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 
 @implementation NSDate(ECVFoundationAdditions)
 
-+ (NSTimeInterval)ECV_timeIntervalSinceReferenceDate
-{
-	return (NSTimeInterval)UnsignedWideToUInt64(AbsoluteToNanoseconds(UpTime())) * 1e-9f;
-}
+//+ (NSTimeInterval)ECV_timeIntervalSinceReferenceDate
+//{
+//	return (NSTimeInterval)UnsignedWideToUInt64(AbsoluteToNanoseconds(mach_absolute_time())) * 1e-9f;
+//}
 
 @end
 

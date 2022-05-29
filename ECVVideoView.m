@@ -23,6 +23,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 #import <OpenGL/gl.h>
 #import <OpenGL/glext.h>
 #import <OpenGL/glu.h>
+#include <GLKit/GLKMatrix4.h>
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
 // Models
 #import "ECVVideoFormat.h"
@@ -320,6 +322,7 @@ static CVReturn ECVDisplayLinkOutputCallback(CVDisplayLinkRef displayLink, const
 	glViewport(NSMinX(b), NSMinY(b), NSWidth(b), NSHeight(b));
 	glLoadIdentity();
 	gluOrtho2D(NSMinX(b), NSMaxX(b), NSMaxY(b), NSMinY(b));
+    
 
 	ECVGLError(glEnable(GL_BLEND));
 	ECVGLError(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));

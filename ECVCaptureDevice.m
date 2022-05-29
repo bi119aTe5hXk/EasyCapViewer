@@ -492,9 +492,9 @@ static IOReturn ECVGetPipeWithProperties(IOUSBInterfaceInterface **const interfa
 - (void)_parseFrame:(inout volatile IOUSBLowLatencyIsocFrame *)frame bytes:(UInt8 const *)bytes previousFrame:(IOUSBLowLatencyIsocFrame *)previous millisecondInterval:(UInt8)millisecondInterval
 {
 	if(previous && kUSBLowLatencyIsochTransferKey == frame->frStatus) {
-		UInt64 const previousTime = UnsignedWideToUInt64(AbsoluteToNanoseconds(previous->frTimeStamp));
+		UInt64 const previousTime = UnsignedWideToUInt64((previous->frTimeStamp));
 		Nanoseconds const nextUpdateTime = UInt64ToUnsignedWide(previousTime + millisecondInterval * ECVNanosecondsPerMillisecond);
-		mach_wait_until(UnsignedWideToUInt64(NanosecondsToAbsolute(nextUpdateTime)));
+		mach_wait_until(UnsignedWideToUInt64((nextUpdateTime)));
 	}
 	while(kUSBLowLatencyIsochTransferKey == frame->frStatus) usleep(100); // In case we haven't slept long enough already.
 	[self writeBytes:bytes length:frame->frActCount toStorage:_videoStorage];
